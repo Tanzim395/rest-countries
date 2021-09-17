@@ -1,4 +1,8 @@
-
+.header-title{
+    text-align: center;
+    color: black;
+    font-weight: 700;
+}
 .countries{
     display: grid;
     grid-template-columns: repeat(3,1fr);
