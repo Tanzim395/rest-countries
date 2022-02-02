@@ -1,21 +1,25 @@
 const loadCountries = () => {
-    fetch('https://restcountries.eu/rest/v2/all')
+    const url = `https://restcountries.com/v3.1/all
+    `
+    fetch(url)
         .then(res => res.json())
-        .then(data => displayCountries(data))
+        .then(data => displayCuntries(data))
 }
-const displayCountries = countries => {
-    // console.log(countries[0])
-    const container = document.getElementById("countries")
-    const countriesHtml = countries.map(country => getCountriesHtml(country));
-    container.innerHTML = countriesHtml.join(' ')
-    console.log(countriesHtml[0])
+
+const displayCuntries = (countries) => {
+    const container = document.getElementById("countries");
+    const countryHTML = countries.map(country => getCountryHTML(country));
+    container.innerHTML = countryHTML.join(' ')
 }
-const getCountriesHtml = country => {
+
+const getCountryHTML = country => {
     return `
-    <div class="country">
-    <h2>${country.name}</h2>
-    <h4> capital:${country.capital}</h4>
-    <img src="${country.flag}">
-    </div>`
+    <div class = "country">
+  <h3>${country.name.common}</h3>
+        <h5>capital: ${country.capital}</h5>
+        <img src = "${country.flags.png}"/>
+        
+    </div>
+    `
 }
-loadCountries()
+loadCountries();
